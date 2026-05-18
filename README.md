@@ -46,7 +46,6 @@ int yywrap()
 %{
 #include <stdio.h>
 #include <stdlib.h>
-
 int yylex();
 void yyerror(const char *s);
 
@@ -56,7 +55,6 @@ int valid = 1;
 %token NUMBER ID
 
 %%
-
 statement:
         expr
         {
@@ -64,13 +62,11 @@ statement:
                 printf("\nValid Arithmetic Expression\n");
         }
         ;
-
 expr:
         expr '+' term
       | expr '-' term
       | term
       ;
-
 term:
         term '*' factor
       | term '/' factor
@@ -82,9 +78,7 @@ factor:
       | NUMBER
       | ID
       ;
-
 %%
-
 int main()
 {
     printf("Enter Expression:\n");
@@ -100,6 +94,5 @@ void yyerror(const char *s)
 ```
 # OUTPUT
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e7b892a0-a552-4297-aab1-4a74e27895d5" />
-
 # RESULT
 A YACC program to recognize a valid arithmetic expression that uses operator +,-,* and / is executed successfully and the output is verified.
